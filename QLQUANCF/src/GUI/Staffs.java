@@ -71,7 +71,7 @@ public class Staffs extends JPanel implements ActionListener{
 		if(ls != null)
 		{
 			for(Staff i : ls) {
-				d.addRow(new Object[] { i.getId_nv(), i.getId_cv(), i.getTen_nv(), i.getLienhe(), i.getDiachi(), i.getUsername(), i.getPassword()});
+				d.addRow(new Object[] { i.getId_nv(), i.getId_cv(), i.getTen_nv(), i.getLienhe(), i.getDiachi(), i.getUsername(), i.getPassword(), i.getHesol(), i.getCasang(), i.getCachieu(), i.getCatoi()});
 			}
 		}
 	}
@@ -85,6 +85,10 @@ public class Staffs extends JPanel implements ActionListener{
 		String dc = tbStaff.getValueAt(i, 4).toString();
 		String tk = tbStaff.getValueAt(i, 5).toString();
 		String mk = tbStaff.getValueAt(i, 6).toString();
+		Float hsl = (Float)tbStaff.getValueAt(i, 7);
+		Integer cs = (Integer)tbStaff.getValueAt(i, 8);
+		Integer cc = (Integer)tbStaff.getValueAt(i, 9);
+		Integer ct = (Integer)tbStaff.getValueAt(i, 10);
 		txtManv.setText(id);
 		cbTencv.setSelectedItem(name_cv);
 		txtTennv.setText(name);
@@ -92,6 +96,14 @@ public class Staffs extends JPanel implements ActionListener{
 		txtAddress.setText(dc);
 		txtUsername.setText(tk);
 		txtPassword.setText(mk);
+		txtHSL.setText(hsl.toString());
+		if(cs == 1)
+			chbSang.setSelected(true);
+		if(cc == 1)
+			chbChieu.setSelected(true);
+		if(ct == 1)
+			chbToi.setSelected(true);
+		
 		}
 	public void setCBB() {
 		for(Work i: work_BLL.getAll())
@@ -107,6 +119,10 @@ public class Staffs extends JPanel implements ActionListener{
 		txtAddress.setText("");
 		txtUsername.setText("");
 		txtPassword.setText("");
+		txtHSL.setText("");
+		chbSang.setSelected(false);
+		chbChieu.setSelected(false);
+		chbToi.setSelected(false);
 	}
 	/**
 	 * Create the panel.
@@ -119,6 +135,7 @@ public class Staffs extends JPanel implements ActionListener{
 		tbStaff.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
+				clearText();
 				setText();
 				btnDel_nv.setEnabled(true);
 				btnUpdate_nv.setEnabled(true);
