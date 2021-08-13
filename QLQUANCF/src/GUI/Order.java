@@ -27,6 +27,7 @@ import java.util.Locale;
 import javax.swing.SwingConstants;
 import javax.swing.JComboBox;
 import javax.swing.JSpinner;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JTable;
 
@@ -42,7 +43,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ItemListener;
 import java.text.NumberFormat;
 import java.awt.event.ItemEvent;
-import javax.swing.JEditorPane;
 
 public class Order extends JFrame implements ActionListener, ItemListener{
 	private JComboBox<Menu> cbThucdon;
@@ -67,7 +67,6 @@ public class Order extends JFrame implements ActionListener, ItemListener{
 	private List<Table> tables;
 	private List<BillOrder> ls;
 	private static final Staff staff;
-	private JEditorPane editorPane;
 	private Locale lc ;
 	private NumberFormat fm ;
 	static{
@@ -137,7 +136,7 @@ public class Order extends JFrame implements ActionListener, ItemListener{
 		txtTongtien.setText(fm.format(total));
 	}
 	public JButton setButton(Table i) {
-		 JButton Button = new JButton(i.getTen_ban());
+		 JButton Button = new JButton(" "+i.getId_ban());
          Button.setBorderPainted(false);
          switch (i.getStatus()) {
          case "Bận":
@@ -149,6 +148,7 @@ public class Order extends JFrame implements ActionListener, ItemListener{
 			break;
          }
          Button.setFont(new Font("Times New Roman", Font.PLAIN, 20));
+         Button.setIcon(new ImageIcon("C:\\Users\\PC\\OneDrive\\Máy tính\\QLQ_CAFE\\QLQUANCF\\image\\Table2.png"));
          Button.setPreferredSize(new Dimension(150, 150));
          return Button;
 	}
@@ -313,11 +313,6 @@ public class Order extends JFrame implements ActionListener, ItemListener{
 		JScrollPane scrollPane = new JScrollPane();
 		scrollPane.setBounds(0, 0, 539, 639);
 		scrollPane.setViewportView(pnTables);
-		
-		editorPane = new JEditorPane();
-		editorPane.setText("");
-		pnTables.add(editorPane);
-		
 		contentPane.add(scrollPane);
 		setEnabled(false);
 	}

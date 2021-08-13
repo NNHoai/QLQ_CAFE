@@ -5,7 +5,7 @@ import java.util.HashSet;
 public class Work {
 	private Integer id_cv;
 	private String ten_cv;
-	private Float luongcb; 
+	private Integer luongcb; 
 	private HashSet<Staff> Staffs;
 	public Work() {
 	}
@@ -16,7 +16,7 @@ public class Work {
         this.setLuong(work.getLuong());
     }
 	
-	public Work(Integer id, String name, Float luong) {
+	public Work(Integer id, String name, Integer luong) {
 		this.id_cv = id;
 		this.ten_cv = name;
 		this.luongcb= luong;
@@ -38,11 +38,11 @@ public class Work {
 		this.ten_cv = ten_cv;
 	}
 
-	public float getLuong() {
+	public Integer getLuong() {
 		return luongcb;
 	}
 
-	public void setLuong(Float luong) {
+	public void setLuong(Integer luong) {
 		this.luongcb = luong;
 	}
 

@@ -16,6 +16,7 @@ import java.awt.Color;
 import javax.swing.JTextField;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import javax.swing.ImageIcon;
 
 public class Main extends JFrame implements ActionListener{
 
@@ -65,33 +66,37 @@ public class Main extends JFrame implements ActionListener{
 		lblNewLabel.setForeground(new Color(210, 105, 30));
 		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel.setFont(new Font("Vladimir Script", Font.BOLD, 48));
-		lblNewLabel.setBounds(298, 42, 300, 66);
+		lblNewLabel.setBounds(293, 34, 300, 66);
 		panel.add(lblNewLabel);
 		
 		btnBanhang = new JButton("Ba\u0301n ha\u0300ng");
+		btnBanhang.setOpaque(false);
 		btnBanhang.addActionListener(this);
-		btnBanhang.setFont(new Font("Times New Roman", Font.PLAIN, 20));
-		btnBanhang.setBounds(119, 154, 160, 85);
+		btnBanhang.setFont(new Font("Times New Roman", Font.BOLD, 20));
+		btnBanhang.setBounds(44, 89, 160, 73);
 		panel.add(btnBanhang);
 		
 		btnQuanLy = new JButton("Qua\u0309n ly\u0301");
+		btnQuanLy.setOpaque(false);
 		btnQuanLy.addActionListener(this);
-		btnQuanLy.setFont(new Font("Times New Roman", Font.PLAIN, 20));
-		btnQuanLy.setBounds(371, 154, 160, 85);
+		btnQuanLy.setFont(new Font("Times New Roman", Font.BOLD, 20));
+		btnQuanLy.setBounds(667, 89, 160, 73);
 		btnQuanLy.setEnabled(false);
 		panel.add(btnQuanLy);
 		
 		btnThongke = new JButton("Th\u00F4\u0301ng k\u00EA");
+		btnThongke.setOpaque(false);
 		btnThongke.addActionListener(this);
-		btnThongke.setFont(new Font("Times New Roman", Font.PLAIN, 20));
-		btnThongke.setBounds(638, 154, 160, 85);
+		btnThongke.setFont(new Font("Times New Roman", Font.BOLD, 20));
+		btnThongke.setBounds(667, 280, 160, 73);
 		btnThongke.setEnabled(false);
 		panel.add(btnThongke);
 		
 		btnThongtin = new JButton("Th\u00F4ng tin");
+		btnThongtin.setOpaque(false);
 		btnThongtin.addActionListener(this);
-		btnThongtin.setFont(new Font("Times New Roman", Font.PLAIN, 20));
-		btnThongtin.setBounds(371, 297, 160, 85);
+		btnThongtin.setFont(new Font("Times New Roman", Font.BOLD, 20));
+		btnThongtin.setBounds(44, 280, 160, 73);
 		panel.add(btnThongtin);
 		
 		btnLogout = new JButton("\u0110\u0103ng xu\u00E2\u0301t");
@@ -113,6 +118,7 @@ public class Main extends JFrame implements ActionListener{
 		txtNhanvien.setColumns(10);
 		
 		JLabel lblNewLabel_2 = new JLabel("");
+		lblNewLabel_2.setIcon(new ImageIcon("C:\\Users\\PC\\OneDrive\\M\u00E1y t\u00EDnh\\QLQ_CAFE\\QLQUANCF\\image\\quan-cafe.jpg"));
 		lblNewLabel_2.setBounds(0, 0, 895, 472);
 		panel.add(lblNewLabel_2);
 

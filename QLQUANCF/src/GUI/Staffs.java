@@ -31,9 +31,6 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
-import javax.swing.JSpinner;
-import javax.swing.SpinnerNumberModel;
-import javax.swing.DefaultComboBoxModel;
 import javax.swing.JCheckBox;
 
 public class Staffs extends JPanel implements ActionListener{
@@ -47,12 +44,18 @@ public class Staffs extends JPanel implements ActionListener{
 	private JTextPane txtAddress;
 	private Staff_BLL staff_BLL;
 	private Work_BLL work_BLL;
-	public Staffs() {
+	private static final Staff staff;
+	static{
+		staff = new Staff();
+	}
+	
+	public Staffs(Staff s) {
 		staff_BLL = new Staff_BLL();
 		work_BLL = new Work_BLL();
 		view();
 		set_tbStaff();
 		setCBB();
+		staff.copy(s);
 	}
 	
 	public void set_tbStaff() {
@@ -235,18 +238,21 @@ public class Staffs extends JPanel implements ActionListener{
 		btnAdd_nv = new JButton("Th\u00EAm");
 		btnAdd_nv.setFont(new Font("Times New Roman", Font.PLAIN, 18));
 		btnAdd_nv.setBounds(671, 40, 112, 32);
+		btnAdd_nv.addActionListener(this);
 		add(btnAdd_nv);
 		
 		btnDel_nv = new JButton("Xo\u0301a");
 		btnDel_nv.setFont(new Font("Times New Roman", Font.PLAIN, 18));
 		btnDel_nv.setBounds(671, 92, 112, 32);
 		btnDel_nv.setEnabled(false);
+		btnDel_nv.addActionListener(this);
 		add(btnDel_nv);
 		
 		btnUpdate_nv = new JButton("S\u01B0\u0309a");
 		btnUpdate_nv.setFont(new Font("Times New Roman", Font.PLAIN, 18));
 		btnUpdate_nv.setBounds(671, 144, 112, 32);
 		btnUpdate_nv.setEnabled(false);
+		btnUpdate_nv.addActionListener(this);
 		add(btnUpdate_nv);
 		
 		txtAddress = new JTextPane();
@@ -317,10 +323,11 @@ public class Staffs extends JPanel implements ActionListener{
 		txtHSL.setBounds(128, 241, 74, 27);
 		add(txtHSL);
 		
-		btnAA = new JButton("Thêm");
-		btnAA.setFont(new Font("Times New Roman", Font.PLAIN, 18));
-		btnAA.setBounds(671, 211, 112, 32);
-		add(btnAA);
+		btnLuong = new JButton("Bảng lương");
+		btnLuong.setFont(new Font("Times New Roman", Font.PLAIN, 18));
+		btnLuong.setBounds(651, 211, 151, 44);
+		btnLuong.addActionListener(this);
+		add(btnLuong);
 	}
 	private JCheckBox chbSang;
 	private JCheckBox chbChieu;
@@ -330,7 +337,7 @@ public class Staffs extends JPanel implements ActionListener{
 	private JButton btnUpdate_nv;
 	private JTextField txtHSL;
 	
-	private JButton btnAA;
+	private JButton btnLuong;
 	
 	@Override
 	public void actionPerformed(ActionEvent e) {
@@ -411,9 +418,14 @@ public class Staffs extends JPanel implements ActionListener{
 				else JOptionPane.showMessageDialog(null, "Mã nhân viên chưa tồn tại!");
 			}
 		}
-		if(e.getSource() == btnAA)
+		if(e.getSource() == btnLuong)
 		{
-			JOptionPane.showMessageDialog(null, chbSang.isSelected() + " " + chbChieu.isSelected());
+			try {
+				Luong frame = new Luong(staff);
+				frame.setVisible(true);
+			} catch (Exception ex) {
+				ex.printStackTrace();
+			}
 		}
 	
 	}

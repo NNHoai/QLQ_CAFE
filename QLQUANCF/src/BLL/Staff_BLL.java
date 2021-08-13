@@ -40,6 +40,10 @@ public class Staff_BLL {
 		}
 		return false;
 	}
+	public Float getLuong(Integer tsc, Integer id_nv)
+	{
+		return staff_DAL.getLuong(tsc, id_nv);
+	}
 	public void add(Staff staff) {
 		staff_DAL.add(staff);
 	}

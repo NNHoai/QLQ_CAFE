@@ -1,5 +1,6 @@
 package DAL;
 
+import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -16,6 +17,7 @@ public class Staff_DAL {
 	private static final Connection connection ;
     private Statement statement ;
     private PreparedStatement preStatement;
+    private CallableStatement cstm;
     private ResultSet resultSet ;
     static{
         connection = connectionDB.getInstance().getConnection();
@@ -76,6 +78,33 @@ public Staff_DAL() {
             
         }
         return staffs;
+    }
+    
+ public Float getLuong(Integer tsc, Integer id_nv) {
+        
+	 	Float luong = 0f;
+        final String query = "{call getLuong(?,?,?)}";
+            
+        try {
+
+        	cstm = connection.prepareCall(query);
+        	cstm.setInt(1, tsc);
+        	cstm.setInt(2, id_nv);
+        	cstm.registerOutParameter(3, java.sql.Types.NVARCHAR);
+        	cstm.execute();
+        	luong = cstm.getFloat(3);
+   
+        } catch (SQLException ex) {
+            Logger.getLogger(Staff_DAL.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        finally{
+            try {
+                cstm.close();
+            } catch (SQLException ex) {
+                Logger.getLogger(Staff_DAL.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        return luong;
     }
 
     public boolean update(Staff staff) {
