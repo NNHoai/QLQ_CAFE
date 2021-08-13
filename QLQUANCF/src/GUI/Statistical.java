@@ -7,6 +7,7 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.border.EmptyBorder;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableRowSorter;
 
 import java.awt.Color;
 import com.toedter.calendar.JDateChooser;
@@ -22,10 +23,10 @@ import java.util.List;
 
 import javax.swing.SwingConstants;
 import javax.swing.JButton;
-import javax.swing.JCheckBox;
 import java.awt.event.ActionListener;
 import java.util.Date;
 import java.awt.event.ActionEvent;
+import javax.swing.ImageIcon;
 
 public class Statistical extends JFrame implements ActionListener{
 
@@ -70,6 +71,8 @@ public class Statistical extends JFrame implements ActionListener{
 	
 	public void set_tbBills() {
 		d = (DefaultTableModel) tbBills.getModel();
+		TableRowSorter<DefaultTableModel> srt = new TableRowSorter<DefaultTableModel>(d);
+		tbBills.setRowSorter(srt);
 		d.setRowCount(0);
 		if(ls != null)
 		{
@@ -103,66 +106,51 @@ public class Statistical extends JFrame implements ActionListener{
 		tbBills.getColumnModel().getColumn(2).setMaxWidth(80);
 
 		JScrollPane pnTB = new JScrollPane();
-		pnTB.setBounds(10, 171, 855, 520);
+		pnTB.setBounds(10, 184, 855, 507);
 		pnTB.setViewportView(tbBills);
 		getContentPane().add(pnTB);
 		
 		JLabel lblNewLabel = new JLabel("T\u01B0\u0300 nga\u0300y");
-		lblNewLabel.setBounds(23, 68, 84, 24);
+		lblNewLabel.setForeground(new Color(230, 230, 250));
+		lblNewLabel.setBounds(10, 139, 84, 24);
 		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel.setFont(new Font("Times New Roman", Font.PLAIN, 20));
 		contentPane.add(lblNewLabel);
 		
 		dateStart = new JDateChooser();
 		dateStart.setDateFormatString("dd-MM-yyyy");
-		dateStart.setBounds(117, 68, 209, 24);
+		dateStart.setBounds(104, 139, 209, 24);
 		java.util.Date date=new java.util.Date();
 		dateStart.setDate(date);
 		contentPane.add(dateStart);
 		
 		JLabel lblnNgay = new JLabel("\u0110\u00EA\u0301n nga\u0300y");
-		lblnNgay.setBounds(411, 68, 84, 24);
+		lblnNgay.setForeground(new Color(230, 230, 250));
+		lblnNgay.setBounds(337, 139, 84, 24);
 		lblnNgay.setHorizontalAlignment(SwingConstants.CENTER);
 		lblnNgay.setFont(new Font("Times New Roman", Font.PLAIN, 20));
 		contentPane.add(lblnNgay);
 		
 		dateEnd = new JDateChooser();
 		dateEnd.setDateFormatString("dd-MM-yyyy");
-		dateEnd.setBounds(505, 68, 209, 24);
+		dateEnd.setBounds(431, 139, 209, 24);
 		dateEnd.setDate(date);
 		contentPane.add(dateEnd);
 		
-		btnSort = new JButton("S\u0103\u0301p x\u00EA\u0301p");
-		btnSort.setBounds(411, 110, 120, 36);
-		btnSort.setFont(new Font("Times New Roman", Font.PLAIN, 20));
-		btnSort.addActionListener(this);
-		contentPane.add(btnSort);
-		
 		btnThongke = new JButton("Th\u00F4\u0301ng k\u00EA");
-		btnThongke.setBounds(594, 110, 120, 36);
+		btnThongke.setBounds(732, 73, 120, 36);
 		btnThongke.setFont(new Font("Times New Roman", Font.PLAIN, 20));
 		btnThongke.addActionListener(this);
 		contentPane.add(btnThongke);
 		
-		JCheckBox chbASC = new JCheckBox("T\u0103ng d\u00E2\u0300n");
-		chbASC.setBounds(32, 113, 111, 31);
-		chbASC.setFont(new Font("Times New Roman", Font.PLAIN, 20));
-		chbASC.setHorizontalAlignment(SwingConstants.CENTER);
-		contentPane.add(chbASC);
-		
-		JCheckBox chbDEC = new JCheckBox("Gia\u0309m d\u00E2\u0300n");
-		chbDEC.setBounds(215, 113, 111, 31);
-		chbDEC.setHorizontalAlignment(SwingConstants.CENTER);
-		chbDEC.setFont(new Font("Times New Roman", Font.PLAIN, 20));
-		contentPane.add(chbDEC);
-		
 		btnExit = new JButton("Thoa\u0301t");
 		btnExit.setFont(new Font("Times New Roman", Font.PLAIN, 20));
-		btnExit.setBounds(745, 10, 120, 36);
+		btnExit.setBounds(732, 10, 120, 36);
 		btnExit.addActionListener(this);
 		contentPane.add(btnExit);
 		
 		JLabel lblThngKHoa = new JLabel("Th\u00F4\u0301ng k\u00EA ho\u0301a \u0111\u01A1n");
+		lblThngKHoa.setForeground(new Color(230, 230, 250));
 		lblThngKHoa.setHorizontalAlignment(SwingConstants.CENTER);
 		lblThngKHoa.setFont(new Font("Times New Roman", Font.BOLD, 30));
 		lblThngKHoa.setBounds(308, 10, 234, 48);
@@ -170,9 +158,14 @@ public class Statistical extends JFrame implements ActionListener{
 		
 		btnReload = new JButton("Tất cả");
 		btnReload.setFont(new Font("Times New Roman", Font.PLAIN, 20));
-		btnReload.setBounds(745, 110, 120, 36);
+		btnReload.setBounds(732, 127, 120, 36);
 		btnReload.addActionListener(this);
 		contentPane.add(btnReload);
+		
+		lbBackground = new JLabel("");
+		lbBackground.setIcon(new ImageIcon("C:\\Users\\PC\\Downloads\\TKe.jpg"));
+		lbBackground.setBounds(0, 0, 874, 178);
+		contentPane.add(lbBackground);
 	}
 	private JDateChooser dateStart;
 	private JDateChooser dateEnd;
@@ -203,19 +196,15 @@ public class Statistical extends JFrame implements ActionListener{
 			return false;
 		return true;
 	}
-	private JButton btnSort;
 	private JButton btnThongke;
 	private JButton btnExit;
 	private JButton btnReload;
+	private JLabel lbBackground;
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		if(e.getSource() == btnThongke)
 		{	
 				thongke();
-		}
-		if(e.getSource() == btnSort)
-		{
-			
 		}
 		if(e.getSource() == btnExit)
 		{

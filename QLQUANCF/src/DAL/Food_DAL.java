@@ -70,6 +70,177 @@ public Food_DAL() {
         }
         return foods;
     }
+    
+    public List<Food> searchFood(String s) {
+        String a = "%" + s + "%";
+        final List<Food> foods = new ArrayList<>();
+        final String sql = "Select * from monan where id_ma like ? or id_td like ? or tenmon like ? or dongia like ? ";
+            
+        try {
+
+        	preStatement = connection.prepareStatement(sql);
+        	preStatement.setString(1, a);
+        	preStatement.setString(2, a);
+        	preStatement.setString(3, a);
+        	preStatement.setString(4, a);
+			
+			resultSet = preStatement.executeQuery();
+            while(resultSet.next()){
+            	Food food = setInfor(resultSet);
+                
+            	foods.add(food);
+            }
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(Food_DAL.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        finally{
+            try {
+            	resultSet.close();
+            	preStatement.close();
+            } catch (SQLException ex) {
+                Logger.getLogger(Food_DAL.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            
+        }
+        return foods;
+    }
+    
+    public List<Food> sortByIdTD(Boolean tg) {
+        
+        final List<Food> foods = new ArrayList<>();
+        final String sql ;
+         	if(tg)
+         		sql =  "Select * from monan order by id_td ASC";
+         	else 
+         		sql =  "Select * from monan order by id_td DESC";
+        try {
+
+            statement = connection.createStatement();
+            resultSet = statement.executeQuery(sql);
+            
+            while(resultSet.next()){
+            	Food food = setInfor(resultSet);
+                
+            	foods.add(food);
+            }
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(Food_DAL.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        finally{
+            try {
+                resultSet.close();
+                statement.close();
+            } catch (SQLException ex) {
+                Logger.getLogger(Food_DAL.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            
+        }
+        return foods;
+    }
+
+    public List<Food> sortByIdMA(Boolean tg) {
+        
+        final List<Food> foods = new ArrayList<>();
+        final String sql ;
+	        if(tg)
+	     		sql =  "Select * from monan order by id_ma ASC";
+	     	else 
+	     		sql =  "Select * from monan order by id_ma DESC";
+        try {
+
+            statement = connection.createStatement();
+            resultSet = statement.executeQuery(sql);
+            
+            while(resultSet.next()){
+            	Food food = setInfor(resultSet);
+                
+            	foods.add(food);
+            }
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(Food_DAL.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        finally{
+            try {
+                resultSet.close();
+                statement.close();
+            } catch (SQLException ex) {
+                Logger.getLogger(Food_DAL.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            
+        }
+        return foods;
+    }
+    
+    public List<Food> sortByTM(Boolean tg) {
+        
+        final List<Food> foods = new ArrayList<>();
+        final String sql ;
+	        if(tg)
+	     		sql =  "Select * from monan order by tenmon ASC";
+	     	else 
+	     		sql =  "Select * from monan order by tenmon DESC";
+        try {
+
+            statement = connection.createStatement();
+            resultSet = statement.executeQuery(sql);
+            
+            while(resultSet.next()){
+            	Food food = setInfor(resultSet);
+                
+            	foods.add(food);
+            }
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(Food_DAL.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        finally{
+            try {
+                resultSet.close();
+                statement.close();
+            } catch (SQLException ex) {
+                Logger.getLogger(Food_DAL.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            
+        }
+        return foods;
+    }
+
+    public List<Food> sortByDG(Boolean tg) {
+        
+        final List<Food> foods = new ArrayList<>();
+        final String sql ;
+        	if(tg)
+        		sql =  "Select * from monan order by dongia ASC";
+        	else 
+        		sql =  "Select * from monan order by dongia DESC";
+        try {
+
+            statement = connection.createStatement();
+            resultSet = statement.executeQuery(sql);
+            
+            while(resultSet.next()){
+            	Food food = setInfor(resultSet);
+                
+            	foods.add(food);
+            }
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(Food_DAL.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        finally{
+            try {
+                resultSet.close();
+                statement.close();
+            } catch (SQLException ex) {
+                Logger.getLogger(Food_DAL.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            
+        }
+        return foods;
+    }
 
     public boolean update(Food food) {
         boolean result = false;

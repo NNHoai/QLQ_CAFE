@@ -19,6 +19,37 @@ public class Food_BLL {
 		}
 		return s;
 	}
+	public List<Food> searchFood(String s) {
+		List<Food> list = new ArrayList<>();
+		for(Food i : food_DAL.searchFood(s))
+		{
+			list.add(i);
+		}
+		return list;
+	}
+	public List<Food> sortFood(int index, Boolean tg) {
+		List<Food> s = new ArrayList<>();
+		List<Food> ls = new ArrayList<>();
+		switch (index) {
+		case 0:
+			ls = food_DAL.sortByIdMA(tg);
+			break;
+		case 1:
+			ls = food_DAL.sortByIdTD(tg);
+			break;
+		case 2:
+			ls = food_DAL.sortByTM(tg);
+			break;
+		case 3:
+			ls = food_DAL.sortByDG(tg);
+			break;
+		}
+		for(Food i : ls)
+		{
+			s.add(i);
+		}
+		return s;
+	}
 	public List<Food> getFoodbyIDMenu(int id) {
 		List<Food> s = new ArrayList<>();
 		for(Food i : food_DAL.getAll())

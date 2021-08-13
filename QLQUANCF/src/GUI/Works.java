@@ -176,11 +176,11 @@ public class Works extends JPanel implements ActionListener{
 				else {
 					Integer id = Integer.parseInt(txtID_cv.getText());
 					String name = txtName_cv.getText();
-					Float salary;
+					Integer salary;
 					if(txtLuong.getText().equals(""))
-						salary = 0f;
+						salary = 0;
 					else {
-						salary = Float.parseFloat(txtLuong.getText());
+						salary = Integer.parseInt(txtLuong.getText());
 					}
 					Work work = new Work(id, name, salary);
 					work_BLL.add(work);
@@ -214,11 +214,11 @@ public class Works extends JPanel implements ActionListener{
 				if(t) {
 					Integer id = Integer.parseInt(txtID_cv.getText());
 					String name = txtName_cv.getText();
-					Float salary;
+					Integer salary;
 					if(txtLuong.getText().equals(""))
-						salary = 0f;
+						salary = 0;
 					else {
-						salary = Float.parseFloat(txtLuong.getText());
+						salary = Integer.parseInt(txtLuong.getText());
 					}
 					Work work = new Work(id, name, salary);
 					work_BLL.update(work);

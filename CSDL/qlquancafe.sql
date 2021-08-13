@@ -20,8 +20,14 @@ from monan as a, hoadon as b, chitiethoadon as c
 where b.id_hd = c.id_hd and a.id_ma = c.id_ma and b.trangthai = "Chưa thanh toán" and b.id_ban = id;
 end$$
 
-DELIMITER ;
+DROP PROCEDURE IF EXISTS `getLuong`$$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `getLuong` (IN tongsc INT, IN  id INT, OUT luong Bigint)  begin
+select tongsc*cv.luongcb*nv.hesoluong into luong 
+from congviec as cv, nhanvien as nv 
+where nv.id_nv = id and nv.id_cv = cv.id_cv;
+end$$
 
+DELIMITER ;
 -- --------------------------------------------------------
 
 --

@@ -29,7 +29,7 @@ public Work_DAL() {
         try {
             Integer id = resultSet.getInt("id_cv");
             String name = resultSet.getString("tencv");
-            Float status = resultSet.getFloat("luongcb");
+            Integer status = resultSet.getInt("luongcb");
             
             work = new Work(id, name,status);
         } catch (SQLException ex) {

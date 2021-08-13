@@ -17,6 +17,7 @@ import java.awt.Color;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import javax.swing.ImageIcon;
 
 public class Manage extends JFrame implements ActionListener, MouseListener{
 
@@ -49,13 +50,7 @@ public class Manage extends JFrame implements ActionListener, MouseListener{
 	private Staffs staffs;
 	private Foods foods;
 	private Works work;
-	private JPanel pnTables;
 	private JPanel pnManage;
-	private JPanel pnMenu;
-	private JLabel lblThcn;
-	private JPanel pnFoods;
-	private JPanel pnStaffs;
-	private JPanel pnWork;
 	
 	public Manage(Staff s){
 		staff.copy(s);
@@ -71,7 +66,7 @@ public class Manage extends JFrame implements ActionListener, MouseListener{
 		
 		menu = new Menus();
 		tables = new Tables();
-		staffs = new Staffs();
+		staffs = new Staffs(s);
 		foods = new Foods();
 		work = new Works();
 		
@@ -87,76 +82,62 @@ public class Manage extends JFrame implements ActionListener, MouseListener{
 		contentPane.add(pnManage);
 		pnManage.setLayout(null);
 		
-		pnStaffs = new JPanel();
-		pnStaffs.setBounds(10, 274, 214, 78);
-		pnManage.add(pnStaffs);
-		pnStaffs.setBackground(new Color(210, 105, 30));
-		pnStaffs.addMouseListener(this);
-		pnStaffs.setLayout(null);
-		
-		JLabel lblStaffs = new JLabel("Nh\u00E2n vi\u00EAn");
-		lblStaffs.setHorizontalAlignment(SwingConstants.CENTER);
-		lblStaffs.setFont(new Font("Times New Roman", Font.BOLD, 30));
-		lblStaffs.setBounds(32, 10, 151, 58);
-		pnStaffs.add(lblStaffs);
-		
-		pnTables = new JPanel();
-		pnTables.setBounds(10, 186, 214, 78);
-		pnManage.add(pnTables);
-		pnTables.setBackground(new Color(210, 105, 30));
-		pnTables.addMouseListener(this);
-		pnTables.setLayout(null);
-		
-		JLabel lblTables = new JLabel("Ba\u0300n");
-		lblTables.setHorizontalAlignment(SwingConstants.CENTER);
-		lblTables.setFont(new Font("Times New Roman", Font.BOLD, 30));
-		lblTables.setBounds(59, 10, 85, 58);
-		pnTables.add(lblTables);
-		
-		pnMenu = new JPanel();
-		pnMenu.addMouseListener(this);
-		pnMenu.setLayout(null);
-		pnMenu.setBackground(new Color(210, 105, 30));
-		pnMenu.setBounds(10, 10, 214, 78);
-		pnManage.add(pnMenu);
-		
-		lblThcn = new JLabel("Th\u01B0\u0323c \u0111\u01A1n");
-		lblThcn.setHorizontalAlignment(SwingConstants.CENTER);
-		lblThcn.setFont(new Font("Times New Roman", Font.BOLD, 30));
-		lblThcn.setBounds(23, 10, 170, 58);
-		pnMenu.add(lblThcn);
-		
-		pnFoods = new JPanel();
-		pnFoods.addMouseListener(this);
-		pnFoods.setLayout(null);
-		pnFoods.setBackground(new Color(210, 105, 30));
-		pnFoods.setBounds(10, 98, 214, 78);
-		pnManage.add(pnFoods);
-		
-		JLabel lblMonn = new JLabel("Mo\u0301n \u0103n");
-		lblMonn.setHorizontalAlignment(SwingConstants.CENTER);
-		lblMonn.setFont(new Font("Times New Roman", Font.BOLD, 30));
-		lblMonn.setBounds(57, 10, 100, 58);
-		pnFoods.add(lblMonn);
-		
-		pnWork = new JPanel();
-		pnWork.addMouseListener(this);
-		pnWork.setLayout(null);
-		pnWork.setBackground(new Color(210, 105, 30));
-		pnWork.setBounds(10, 362, 214, 78);
-		pnManage.add(pnWork);
-		
-		JLabel lblCngVic = new JLabel("C\u00F4ng vi\u00EA\u0323c");
-		lblCngVic.setHorizontalAlignment(SwingConstants.CENTER);
-		lblCngVic.setFont(new Font("Times New Roman", Font.BOLD, 30));
-		lblCngVic.setBounds(32, 10, 151, 58);
-		pnWork.add(lblCngVic);
-		
 		btnThoat = new JButton("Thoa\u0301t");
 		btnThoat.addActionListener(this);
 		btnThoat.setFont(new Font("Times New Roman", Font.PLAIN, 18));
-		btnThoat.setBounds(54, 460, 118, 38);
+		btnThoat.setBounds(53, 473, 118, 38);
 		pnManage.add(btnThoat);
+		
+		lbCongViec = new JLabel("C\u00F4ng vi\u00EA\u0323c");
+		lbCongViec.setOpaque(true);
+		lbCongViec.setBackground(new Color(210, 105, 30));
+		lbCongViec.setBounds(10, 405, 220, 58);
+		lbCongViec.setHorizontalAlignment(SwingConstants.CENTER);
+		lbCongViec.setFont(new Font("Times New Roman", Font.BOLD, 30));
+		lbCongViec.addMouseListener(this);
+		pnManage.add(lbCongViec);
+		
+		lbNhanvien = new JLabel("Nh\u00E2n vi\u00EAn");
+		lbNhanvien.setOpaque(true);
+		lbNhanvien.setBackground(new Color(210, 105, 30));
+		lbNhanvien.setBounds(10, 337, 220, 58);
+		lbNhanvien.setHorizontalAlignment(SwingConstants.CENTER);
+		lbNhanvien.setFont(new Font("Times New Roman", Font.BOLD, 30));
+		lbNhanvien.addMouseListener(this);
+		pnManage.add(lbNhanvien);
+		
+		lbBan = new JLabel("Ba\u0300n");
+		lbBan.setOpaque(true);
+		lbBan.setBackground(new Color(210, 105, 30));
+		lbBan.setBounds(10, 269, 220, 58);
+		lbBan.setHorizontalAlignment(SwingConstants.CENTER);
+		lbBan.setFont(new Font("Times New Roman", Font.BOLD, 30));
+		lbBan.addMouseListener(this);
+		pnManage.add(lbBan);
+		
+		lbMonan = new JLabel("Mo\u0301n \u0103n");
+		lbMonan.setOpaque(true);
+		lbMonan.setBackground(new Color(210, 105, 30));
+		lbMonan.setBounds(10, 201, 220, 58);
+		lbMonan.setHorizontalAlignment(SwingConstants.CENTER);
+		lbMonan.setFont(new Font("Times New Roman", Font.BOLD, 30));
+		lbMonan.addMouseListener(this);
+		pnManage.add(lbMonan);
+		
+		lbThucdon = new JLabel("Th\u01B0\u0323c \u0111\u01A1n");
+		lbThucdon.setBackground(new Color(210, 105, 30));
+		lbThucdon.setOpaque(true);
+		lbThucdon.setBounds(10, 133, 220, 58);
+		lbThucdon.setHorizontalAlignment(SwingConstants.CENTER);
+		lbThucdon.setFont(new Font("Times New Roman", Font.BOLD, 30));
+		lbThucdon.addMouseListener(this);
+		pnManage.add(lbThucdon);
+		
+		lblNewLabel = new JLabel("");
+		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\PC\\OneDrive\\M\u00E1y t\u00EDnh\\QLQ_CAFE\\QLQUANCF\\image\\ic_manage.png"));
+		lblNewLabel.setBounds(0, 0, 240, 123);
+		pnManage.add(lblNewLabel);
+		
 		menuClick(menu);
 		
 	}
@@ -170,7 +151,14 @@ public class Manage extends JFrame implements ActionListener, MouseListener{
 		jp.setVisible(true);
 	}
 	
+	private JLabel lbCongViec;
+	private JLabel lbThucdon;
+	private JLabel lbNhanvien;
+	private JLabel lbMonan;
+	private JLabel lbBan;
+	
 	private JButton btnThoat;
+	private JLabel lblNewLabel;
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		if(e.getSource() == btnThoat)
@@ -189,23 +177,23 @@ public class Manage extends JFrame implements ActionListener, MouseListener{
 	}
 	@Override
 	public void mouseClicked(MouseEvent e) {
-		if(e.getSource() == pnTables)
+		if(e.getSource() == lbBan)
 		{
 			menuClick(tables);
 		}
-		if(e.getSource() == pnFoods)
+		if(e.getSource() == lbMonan)
 		{
 			menuClick(foods);
 		}
-		if(e.getSource() == pnMenu)
+		if(e.getSource() == lbThucdon)
 		{
 			menuClick(menu);
 		}
-		if(e.getSource() == pnStaffs)
+		if(e.getSource() == lbNhanvien)
 		{
 			menuClick(staffs);
 		}
-		if(e.getSource() == pnWork)
+		if(e.getSource() == lbCongViec)
 		{
 			menuClick(work);
 		}
