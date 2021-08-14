@@ -169,7 +169,7 @@ public Staff_DAL() {
         
         String query = "insert into nhanvien "
                         + "( id_cv, ten_nv, lienhe, diachi, username, password, hesoluong, casang, cachieu, catoi)\n" 
-                        + "value(?,?,?,?,?,?,?,?,?,?,?) ;";
+                        + "value(?,?,?,?,?,?,?,?,?,?) ;";
         try {
             preStatement = connection.prepareStatement(query, PreparedStatement.RETURN_GENERATED_KEYS);
             preStatement.setInt(1, staff.getId_cv());
