@@ -120,7 +120,7 @@ public class Login extends JFrame implements ActionListener{
 		if(e.getSource() == btnLogin)
 		{
 			String username = txtUserName.getText();
-			String password = txtPassWord.getText();
+			String password = String.valueOf(txtPassWord.getPassword());
 			Staff s = login(username,password);
 			if(s != null)
 			{
