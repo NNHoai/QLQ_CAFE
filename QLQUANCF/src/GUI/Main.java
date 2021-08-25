@@ -118,7 +118,7 @@ public class Main extends JFrame implements ActionListener{
 		txtNhanvien.setColumns(10);
 		
 		JLabel lblNewLabel_2 = new JLabel("");
-		lblNewLabel_2.setIcon(new ImageIcon("C:\\Users\\PC\\OneDrive\\M\u00E1y t\u00EDnh\\QLQ_CAFE\\QLQUANCF\\image\\quan-cafe.jpg"));
+		lblNewLabel_2.setIcon(new ImageIcon("C:\\\\Users\\\\TP\\\\OneDrive - The University of Technology\\\\Desktop\\\\QLQ_CAFE\\\\QLQUANCF\\\\image\\quan-cafe.jpg"));
 		lblNewLabel_2.setBounds(0, 0, 895, 472);
 		panel.add(lblNewLabel_2);
 

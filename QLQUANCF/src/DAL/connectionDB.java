@@ -12,7 +12,7 @@ public class connectionDB {
         try {
         	
 //        	String url ="jdbc:mysql://localhost:3036/test"+","+"root"+","+"20211516h";
-        	String url = "jdbc:mysql://localhost:3306/qlquancafe?user=root&password=20211516h&useUnicode=true&characterEncoding=utf8";
+        	String url = "jdbc:mysql://localhost/qlquancafe?user=root&password=&useUnicode=true&characterEncoding=utf8";
             connection = DriverManager.getConnection(url);
 
         } catch (SQLException e) {

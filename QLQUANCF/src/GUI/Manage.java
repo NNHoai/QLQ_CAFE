@@ -134,7 +134,7 @@ public class Manage extends JFrame implements ActionListener, MouseListener{
 		pnManage.add(lbThucdon);
 		
 		lblNewLabel = new JLabel("");
-		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\PC\\OneDrive\\M\u00E1y t\u00EDnh\\QLQ_CAFE\\QLQUANCF\\image\\ic_manage.png"));
+		lblNewLabel.setIcon(new ImageIcon("C:\\\\Users\\\\TP\\\\OneDrive - The University of Technology\\\\Desktop\\\\QLQ_CAFE\\\\QLQUANCF\\\\image\\ic_manage.png"));
 		lblNewLabel.setBounds(0, 0, 240, 123);
 		pnManage.add(lblNewLabel);
 		
