@@ -6,7 +6,7 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="src" path="src"/>
-	<classpathentry kind="lib" path="C:/Users/PC/OneDrive/Máy tính/QLQ_CAFE/Libs/jcalendar-1.4.jar"/>
-	<classpathentry kind="lib" path="C:/Users/PC/OneDrive/Máy tính/QLQ_CAFE/Libs/mysql-connector-java-8.0.25.jar"/>
+	<classpathentry kind="lib" path="C:/Users/TP/OneDrive - The University of Technology/Desktop/QLQ_CAFE/Libs/jcalendar-1.4.jar"/>
+	<classpathentry kind="lib" path="C:/Users/TP/OneDrive - The University of Technology/Desktop/QLQ_CAFE/Libs/mysql-connector-java-8.0.25.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

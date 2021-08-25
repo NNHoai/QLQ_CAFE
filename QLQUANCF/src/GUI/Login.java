@@ -20,7 +20,6 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.SwingConstants;
 import javax.swing.ImageIcon;
-import java.awt.Toolkit;
 
 public class Login extends JFrame implements ActionListener{
 	/**
@@ -110,7 +109,7 @@ public class Login extends JFrame implements ActionListener{
 		panel.add(txtPassWord);
 		
 		JLabel lbBackground = new JLabel("");
-		lbBackground.setIcon(new ImageIcon("C:\\Users\\PC\\OneDrive\\Máy tính\\QLQ_CAFE\\QLQUANCF\\image\\Login.png"));
+		lbBackground.setIcon(new ImageIcon("C:\\Users\\TP\\OneDrive - The University of Technology\\Desktop\\QLQ_CAFE\\QLQUANCF\\image\\Login.png"));
 		lbBackground.setHorizontalAlignment(SwingConstants.CENTER);
 		lbBackground.setBounds(0, 0, 1061, 570);
 		panel.add(lbBackground);

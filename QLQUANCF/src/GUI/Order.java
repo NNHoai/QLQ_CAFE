@@ -148,7 +148,7 @@ public class Order extends JFrame implements ActionListener, ItemListener{
 			break;
          }
          Button.setFont(new Font("Times New Roman", Font.PLAIN, 20));
-         Button.setIcon(new ImageIcon("C:\\Users\\PC\\OneDrive\\Máy tính\\QLQ_CAFE\\QLQUANCF\\image\\Table2.png"));
+         Button.setIcon(new ImageIcon("C:\\\\Users\\\\TP\\\\OneDrive - The University of Technology\\\\Desktop\\\\QLQ_CAFE\\\\QLQUANCF\\\\image\\Table2.png"));
          Button.setPreferredSize(new Dimension(150, 150));
          return Button;
 	}

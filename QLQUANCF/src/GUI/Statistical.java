@@ -163,7 +163,7 @@ public class Statistical extends JFrame implements ActionListener{
 		contentPane.add(btnReload);
 		
 		lbBackground = new JLabel("");
-		lbBackground.setIcon(new ImageIcon("C:\\Users\\PC\\Downloads\\TKe.jpg"));
+		lbBackground.setIcon(new ImageIcon("C:\\\\Users\\\\TP\\\\OneDrive - The University of Technology\\\\Desktop\\\\QLQ_CAFE\\\\QLQUANCF\\\\image\\TKe.jpg"));
 		lbBackground.setBounds(0, 0, 874, 178);
 		contentPane.add(lbBackground);
 	}

@@ -131,7 +131,7 @@ public class Luong extends JFrame implements ActionListener{
 		contentPane.add(btnThoat);
 		
 		lbBackground = new JLabel("");
-		lbBackground.setIcon(new ImageIcon("C:\\Users\\PC\\OneDrive\\M\u00E1y t\u00EDnh\\QLQ_CAFE\\QLQUANCF\\image\\BLuong.jpg"));
+		lbBackground.setIcon(new ImageIcon("C:\\\\Users\\\\TP\\\\OneDrive - The University of Technology\\\\Desktop\\\\QLQ_CAFE\\\\QLQUANCF\\\\image\\BLuong.jpg"));
 		lbBackground.setBounds(0, 0, 1059, 617);
 		contentPane.add(lbBackground);
 	}
